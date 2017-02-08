@@ -26,7 +26,7 @@ export const createStore = (initialState, name, parnetStore = store) => {
     keys.forEach(key => {
         if (typeof(initialState[key]) === 'object' && !Array.isArray(initialState[key])) {
 
-            const subNode = tansform(initialState[key], key, selfStream)
+            const subNode = createStore(initialState[key], key, selfStream)
             result[key] = {
                 ...subNode
             }
