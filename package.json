@@ -1,0 +1,29 @@
+{
+  "name": "rx-reactstore",
+  "version": "1.0.0",
+  "description": "state manangement with rxjs",
+  "main": "store.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreambo8563/rx-reactStore.git"
+  },
+  "keywords": [
+    "rxjs",
+    "reactive",
+    "reactjs"
+  ],
+  "author": "dreambo8563 <dreambo8563@outlook.com> (http://dreambo8563.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreambo8563/rx-reactStore/issues"
+  },
+  "homepage": "https://github.com/dreambo8563/rx-reactStore#readme",
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "rxjs": "^5.1.0",
+    "react": "^15.4.2"
+  }
+}

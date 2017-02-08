@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/withLatestFrom';
 import deepEqual from 'deep-equal';
+import Provider from './provider'
+import injectProps from './injectProps'
 
 export const store = new Rx
     .ReplaySubject(1)
@@ -50,3 +52,6 @@ export const createStore = (initialState, name, parnetStore = store) => {
         .subscribe(parnetStore)
     return result
 }
+
+export Provider
+export injectProps
