@@ -27,7 +27,7 @@ const injectProps = (selector = (state) => state) => (WrappedComponent) => class
   }
 
   render() {
-    console.log(selector, WrappedComponent);
+   // console.log(selector, WrappedComponent);
     return (<WrappedComponent { ...this.state } { ...this.props }/>);
   }
 };
