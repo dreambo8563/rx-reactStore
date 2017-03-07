@@ -24,7 +24,7 @@ export const createStore = (initialState, name, parnetStore = store) => {
         updateStore: new Subject()
     }
     keys.forEach(key => {
-        if (typeof(initialState[key]) === 'object' && !Array.isArray(initialState[key])) {
+        if (!!initialState[key] && typeof(initialState[key]) === 'object' && !Array.isArray(initialState[key])) {
 
             const subNode = createStore(initialState[key], key, selfStream)
             result[key] = {
