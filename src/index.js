@@ -44,9 +44,10 @@ export const createStore = (initialState, name, parnetStore = store) => {
             console.log(change, store, nextStore);
             return {
                 [name]: {
-                    ...store[name],
+                    
                     ...nextStore,
-                    ...change
+                    ...change,
+                    ...store[name],
                 }
             }
         })
