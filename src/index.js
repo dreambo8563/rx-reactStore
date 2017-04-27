@@ -8,12 +8,11 @@ import deepEqual from 'deep-equal';
 export Provider from './provider'
 export injectProps from './injectProps'
 
-export const store = new ReplaySubject(1).map(subStore => {
-    console.log(subStore);
-    return Object({
-        ...subStore
-    })
-}).distinctUntilChanged((a, b) => deepEqual(a, b))
+export const store = new ReplaySubject(1)
+    .map(subStore => Object({
+    ...subStore
+}))
+    .distinctUntilChanged((a, b) => deepEqual(a, b))
 
 export const createStore = (initialState, name, parnetStore = store) => {
     const keys = Object.keys(initialState)
@@ -22,7 +21,7 @@ export const createStore = (initialState, name, parnetStore = store) => {
     selfStream.next(initialState)
 
     let result = {
-        updateStore: new ReplaySubject(1)
+        updateStore: new Subject()
     }
     keys.forEach(key => {
         if (!!initialState[key] && typeof(initialState[key]) === 'object' && !Array.isArray(initialState[key])) {
@@ -41,13 +40,11 @@ export const createStore = (initialState, name, parnetStore = store) => {
     result
         .updateStore
         .withLatestFrom(parnetStore, selfStream, (change, store, nextStore) => {
-            console.log(change, store, nextStore);
             return {
                 [name]: {
-                    
-                    ...nextStore,
-                    ...change,
                     ...store[name],
+                    ...nextStore,
+                    ...change
                 }
             }
         })
