@@ -40,6 +40,7 @@ export const createStore = (initialState, name, parnetStore = store) => {
     result
         .updateStore
         .withLatestFrom(parnetStore, selfStream, (change, store, nextStore) => {
+            console.log(change,store,nextStore);
             return {
                 [name]: {
                     ...store[name],
