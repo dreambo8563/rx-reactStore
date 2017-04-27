@@ -21,7 +21,7 @@ export const createStore = (initialState, name, parnetStore = store) => {
     selfStream.next(initialState)
 
     let result = {
-        updateStore: new Subject()
+        updateStore: new ReplaySubject(1)
     }
     keys.forEach(key => {
         if (!!initialState[key] && typeof(initialState[key]) === 'object' && !Array.isArray(initialState[key])) {
