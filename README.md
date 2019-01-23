@@ -1,5 +1,7 @@
 # rx-reactStore is a state management tool to replace redux
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dreambo8563/rx-reactStore.svg)](https://greenkeeper.io/)
+
 - core with rxjs 
 - work with reactjs/react-router
 
